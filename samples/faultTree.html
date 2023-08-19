@@ -182,6 +182,7 @@
       Diagram Model saved in JSON format:
     </div>
     <textarea id="mySavedModel" style="width:100%;height:300px">
+<!--
 { "class": "go.TreeModel",
 "nodeDataArray": [
 {"key":1, "text":"No flow to receiver", "figure":"None"},
@@ -194,6 +195,37 @@
 {"key":8, "text":"Component A1 blocks flow", "parent":5, "figure":"Circle", "fill":"green", "choice":"B02"},
 {"key":9, "text":"No flow from source2", "parent":6, "figure":"Triangle", "choice":"T02"},
 {"key":10, "text":"Component A2 blocks flow", "parent":6, "figure":"Circle", "choice":"B03"}
+]}
+-->
+{ "class": "go.TreeModel",
+"nodeDataArray": [
+  { "key": "1", "text": "Top-样品1电源发停超过20S复归不具合" },
+  { "key": "2", "text": "M1-WRC与IRR发停判断不一致", "parent": "1", "figure": "OrGate" },
+  { "key": "3", "text": "M11-WRC 判断出错:PC-ARFG2瞬停长停判断出错", "parent": "2" , "figure": "OrGate"},
+  { "key": "4", "text": "M111-Hardware version: V2.7&V2.8", "parent": "3", "figure": "OrGate" },
+  { "key": "5", "text": "M1111-瞬停长停判断电路故障20S后电压大于AD阈值", "parent": "4" , "figure": "OrGate"},
+  { "key": "6", "text": "X1-IDU供电异常", "parent": "5", "figure": "Circle" },
+  { "key": "7", "text": "X2-外部环境噪声干扰AD", "parent": "5", "figure": "Circle" },
+  { "key": "8", "text": "X3-样品1CPU AD端口损坏", "parent": "4", "figure": "Circle" },
+  { "key": "9", "text": "M112-Software version:G1-0.01.01&0.01.04", "parent": "3" , "figure": "OrGate"},
+  { "key": "10", "text": "X4-瞬停长停AD端口配置错误", "parent": "9", "figure": "Circle" },
+  { "key": "11", "text": "X5-~ AD端口读值出错~", "parent": "9", "figure": "Circle" },
+  { "key": "12", "text": "X6-判断逻辑出错", "parent": "9", "figure": "Circle" },
+  { "key": "13", "text": "X7-瞬停长停命令出错", "parent": "9", "figure": "Circle" },
+  { "key": "14", "text": "M12-IRR: PC-ALHZ1瞬停长停判断出错", "parent": "2", "figure": "OrGate" },
+  { "key": "15", "text": "M121-Hardware version: 瞬停长停判断电路故障", "parent": "14" , "figure": "OrGate"},
+  { "key": "16", "text": "M1211-20S后电压大于AD阈值", "parent": "15", "figure": "OrGate" },
+  { "key": "17", "text": "X8-外部环境噪声干扰AD", "parent": "16", "figure": "Circle" },
+  { "key": "18", "text": "X9- IDU供电异常", "parent": "16", "figure": "Circle" },
+  { "key": "19", "text": "X10-样品1故障：CPU AD端口损坏", "parent": "16", "figure": "Circle" },
+  { "key": "20", "text": "M122-Software version运行异常", "parent": "14" , "figure": "OrGate"},
+  { "key": "21", "text": "X11-瞬停长停AD端口配置错误", "parent": "20", "figure": "Circle" },
+  { "key": "22", "text": "X12-AD端口读值出错", "parent": "20", "figure": "Circle" },
+  { "key": "23", "text": "X13-判断逻辑出错", "parent": "20", "figure": "Circle" },
+  { "key": "24", "text": "X14-瞬停长停命令出错", "parent": "20", "figure": "Circle" },
+  { "key": "25", "text": "M2-IDU RPK-GP63K3 出错", "parent": "1" , "figure": "OrGate"},
+  { "key": "26", "text": "X15-d1功能异常", "parent": "25", "figure": "Circle" },
+  { "key": "27", "text": "X16-d3功能异常", "parent": "25", "figure": "Circle" }
 ]}
     </textarea>
   </div>
